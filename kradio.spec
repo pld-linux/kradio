@@ -71,6 +71,8 @@ rm -rf $RPM_BUILD_ROOT
 %doc kradio3/AUTHORS kradio3/ChangeLog kradio3/README kradio3/TODO
 #attr(755,root,root) %{_bindir}/convert-presets
 %attr(755,root,root) %{_bindir}/kradio
+%dir %{_libdir}/%{name}
+%dir %{_libdir}/%{name}/plugins
 %attr(755,root,root) %{_libdir}/%{name}/plugins/*.so
 %{_desktopdir}/kde/kradio.desktop
 %{_datadir}/apps/%{name}
