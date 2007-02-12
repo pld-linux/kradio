@@ -1,5 +1,5 @@
 Summary:	KRadio - The KDE Radio Application
-Summary(pl):	KRadio - Radio dla KDE
+Summary(pl.UTF-8):   KRadio - Radio dla KDE
 Name:		kradio
 Version:	1.0
 %define		_snap	snapshot_2005_12_04
@@ -40,27 +40,27 @@ As KRadio is based on an extendable plugin architecture, contributions
 of new plugins (e.g. Internet Radio Streams, new cool GUIs) are
 welcome.
 
-%description -l pl
-KRadio to wygodne radio dla KDE z obs³ug± sterowników kart radiowych
+%description -l pl.UTF-8
+KRadio to wygodne radio dla KDE z obsÅ‚ugÄ… sterownikÃ³w kart radiowych
 V4L i V4L2.
 
-KRadio aktualnie udostêpnia:
-- obs³ugê radia V4L/V4L2
-- obs³ugê zdalnego sterowania (LIRC)
-- alarmy, odliczanie do wy³±czenia
-- ró¿ne sposoby sterowania GUI (menu dokuj±ce, pasek szybkiego dostêpu
-  do stacji, wy¶wietlacz radia)
-- obs³uga timeshiftera
-- mo¿liwo¶æ nagrywania (MP3, Ogg/Vorbis, WAV...)
+KRadio aktualnie udostÄ™pnia:
+- obsÅ‚ugÄ™ radia V4L/V4L2
+- obsÅ‚ugÄ™ zdalnego sterowania (LIRC)
+- alarmy, odliczanie do wyÅ‚Ä…czenia
+- rÃ³Å¼ne sposoby sterowania GUI (menu dokujÄ…ce, pasek szybkiego dostÄ™pu
+  do stacji, wyÅ›wietlacz radia)
+- obsÅ‚uga timeshiftera
+- moÅ¼liwoÅ›Ä‡ nagrywania (MP3, Ogg/Vorbis, WAV...)
 - rozszerzalna architektura wtyczek
 
-Ten pakiet zawiera tak¿e rozrastaj±c± siê kolekcjê plików ustawieñ dla
-stacji radiowych dla wielu miast ¶wiata dostarczon± przez u¿ytkowników
+Ten pakiet zawiera takÅ¼e rozrastajÄ…cÄ… siÄ™ kolekcjÄ™ plikÃ³w ustawieÅ„ dla
+stacji radiowych dla wielu miast Å›wiata dostarczonÄ… przez uÅ¼ytkownikÃ³w
 aplikacji.
 
-Poniewa¿ KRadio jest oparte na rozszerzalnej architekturze wtyczek,
-mile widziane jest udostêpnianie nowych  wtyczek (np. dla strumieni
-stacji internetowych, nowych graficznych interfejsów u¿ytkownika).
+PoniewaÅ¼ KRadio jest oparte na rozszerzalnej architekturze wtyczek,
+mile widziane jest udostÄ™pnianie nowych  wtyczek (np. dla strumieni
+stacji internetowych, nowych graficznych interfejsÃ³w uÅ¼ytkownika).
 
 %prep
 %setup -q -n %{name}-%{_snap}
