@@ -1,5 +1,5 @@
 Summary:	KRadio - The KDE Radio Application
-Summary(pl.UTF-8):   KRadio - Radio dla KDE
+Summary(pl.UTF-8):	KRadio - Radio dla KDE
 Name:		kradio
 Version:	1.0
 %define		_snap	snapshot_2005_12_04
