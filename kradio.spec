@@ -79,6 +79,7 @@ stacji internetowych, nowych graficznych interfejsów użytkownika).
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
+	libkradiodir=%{_libdir}/kradio/plugins \
 	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
