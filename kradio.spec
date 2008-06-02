@@ -2,12 +2,12 @@ Summary:	KRadio - The KDE Radio Application
 Summary(pl.UTF-8):	KRadio - Radio dla KDE
 Name:		kradio
 Version:	1.0
-%define		_snap	snapshot_2005_12_04
-Release:	0.%(echo %{_snap} | sed -e 's:[a-z_]::g').1
+%define		_snap	snapshot-2006-11-12-r497
+Release:	0.%(echo %{_snap} | sed -e 's:[a-z_]::g' -e 's:-:_:g').1
 License:	GPL v2
 Group:		Applications
 Source0:	http://kradio.sourceforge.net/download/%{name}-%{_snap}.tar.gz
-# Source0-md5:	c6fe6f497ee3b7468ae54f029c80de48
+# Source0-md5:	1ef0d94a7aa9d7e0d66ce0e80e0ab48e
 URL:		http://kradio.sourceforge.net/
 BuildRequires:	alsa-lib-devel
 #BuildRequires:	autoconf
@@ -17,6 +17,7 @@ BuildRequires:	lame-libs-devel
 BuildRequires:	libsndfile-devel
 BuildRequires:	libtool
 BuildRequires:	libvorbis-devel
+BuildRequires:	unsermake
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -73,14 +74,32 @@ stacji internetowych, nowych graficznych interfejsów użytkownika).
 	--disable-static \
 	--enable-v4l2
 
-%{__make}
+%{__unsermake}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install \
+%{__unsermake} install \
 	libkradiodir=%{_libdir}/kradio/plugins \
+	kde_htmldir=%{_kdedocdir} \
+	kde_libs_htmldir=%{_kdedocdir} \
+	kdelnkdir=%{_desktopdir} \
 	DESTDIR=$RPM_BUILD_ROOT
+
+%find_lang %{name} -o %{name}.lang --with-kde
+%find_lang %{name}-alsa-sound -a %{name}.lang --with-kde
+%find_lang %{name}-gui-docking-menu -a %{name}.lang --with-kde
+%find_lang %{name}-gui-error-log -a %{name}.lang --with-kde
+%find_lang %{name}-gui-quickbar -a %{name}.lang --with-kde
+%find_lang %{name}-gui-standard-display -a %{name}.lang --with-kde
+%find_lang %{name}-oss-sound -a %{name}.lang --with-kde
+%find_lang %{name}-radio -a %{name}.lang --with-kde
+%find_lang %{name}-recording -a %{name}.lang --with-kde
+%find_lang %{name}-soundserver -a %{name}.lang --with-kde
+%find_lang %{name}-streaming -a %{name}.lang --with-kde
+%find_lang %{name}-timecontrol -a %{name}.lang --with-kde
+%find_lang %{name}-timeshifter -a %{name}.lang --with-kde
+%find_lang %{name}-v4lradio -a %{name}.lang --with-kde
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -88,14 +107,12 @@ rm -rf $RPM_BUILD_ROOT
 %post	-p /sbin/ldconfig
 %postun	-p /sbin/ldconfig
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc kradio3/AUTHORS kradio3/ChangeLog kradio3/README kradio3/TODO
-#attr(755,root,root) %{_bindir}/convert-presets
 %attr(755,root,root) %{_bindir}/kradio
 %dir %{_libdir}/%{name}
 %dir %{_libdir}/%{name}/plugins
 %attr(755,root,root) %{_libdir}/%{name}/plugins/*.so
 %{_desktopdir}/kde/kradio.desktop
 %{_datadir}/apps/%{name}
-%{_iconsdir}/hicolor/*/*/*.png
