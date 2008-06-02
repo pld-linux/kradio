@@ -1,3 +1,6 @@
+# Conditional build:
+%bcond_without	lirc		# without lirc support
+#
 Summary:	KRadio - The KDE Radio Application
 Summary(pl.UTF-8):	KRadio - Radio dla KDE
 Name:		kradio
@@ -12,11 +15,13 @@ URL:		http://kradio.sourceforge.net/
 BuildRequires:	alsa-lib-devel
 #BuildRequires:	autoconf
 #BuildRequires:	automake
+BuildRequires:	gettext-devel
 BuildRequires:	kdelibs-devel
 BuildRequires:	lame-libs-devel
 BuildRequires:	libsndfile-devel
 BuildRequires:	libtool
 BuildRequires:	libvorbis-devel
+%{?with_lirc:BuildRequires:	lirc-devel}
 BuildRequires:	unsermake
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -70,6 +75,7 @@ stacji internetowych, nowych graficznych interfejsów użytkownika).
 %configure \
 	--with-qt-includes=%{_includedir}/qt \
 	--with-qt-libraries=%{_libdir} \
+	--%{?with_lirc:en}%{!?with_lirc:dis}able-lirc \
 	--enable-shared \
 	--disable-static \
 	--enable-v4l2
