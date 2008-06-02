@@ -106,6 +106,9 @@ rm -rf $RPM_BUILD_ROOT
 %find_lang %{name}-timecontrol -a %{name}.lang --with-kde
 %find_lang %{name}-timeshifter -a %{name}.lang --with-kde
 %find_lang %{name}-v4lradio -a %{name}.lang --with-kde
+%if %{with lirc}
+%find_lang %{name}-lirc -a %{name}.lang
+%endif
 
 %clean
 rm -rf $RPM_BUILD_ROOT
