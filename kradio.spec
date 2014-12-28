@@ -15,7 +15,7 @@ URL:		http://kradio.sourceforge.net/
 BuildRequires:	alsa-lib-devel
 #BuildRequires:	autoconf
 #BuildRequires:	automake
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	kdelibs-devel
 BuildRequires:	lame-libs-devel
 BuildRequires:	libsndfile-devel
